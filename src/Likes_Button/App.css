@@ -1,0 +1,15 @@
+.liked {
+  background-color: green;
+}
+
+
+.disliked {
+  background-color: red;
+}
+
+.button {
+  border: solid;
+  border-width: 1px;
+  border-color: purple;
+
+}
