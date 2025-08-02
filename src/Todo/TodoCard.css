@@ -1,0 +1,19 @@
+.todoCard {
+    border: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    gap: 5px;
+    width: 200px
+}
+
+.todoCardPending {
+    background: orange;
+} 
+
+
+.todoCardCompleted{
+    background: green;
+} 
+

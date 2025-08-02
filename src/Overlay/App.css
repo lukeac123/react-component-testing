@@ -1,0 +1,35 @@
+.app {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.overlay {
+    position: relative;
+}
+
+.overlayCloseButton {
+    position: absolute;
+    top: 0px;
+    right: 0px
+}
+
+.overlayPanel {
+    position: absolute;
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    z-index: 100;
+}
+
+.overlayPosition-top {
+    bottom: 50px;
+}
+
+.overlayPosition-bottom {
+    top: 50px;
+}
