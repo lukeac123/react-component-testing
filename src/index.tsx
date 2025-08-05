@@ -8,7 +8,8 @@ import "./index.css";
 // import App from "./Data_Fetching/App";
 // import App from "./Todo/App";
 // import App from "./Form/App";
-import App from "./Overlay/App";
+// import App from "./Overlay/App";
+import { App } from "./Accordion/App";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

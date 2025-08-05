@@ -1,0 +1,13 @@
+.accordionPanel {
+    width: 100%
+}
+
+.accordionPanelHeader {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.accordionPanelHeaderTitle {
+    flex-grow: 1;
+}
