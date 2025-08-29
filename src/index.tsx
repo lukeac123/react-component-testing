@@ -9,13 +9,16 @@ import "./index.css";
 // import App from "./Todo/App";
 // import App from "./Form/App";
 // import App from "./Overlay/App";
-import { App } from "./Accordion/App";
+// import { App } from "./Accordion/App";
+import { Quiz } from "./Quiz";
+import { App } from "./Search";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    {/* <Quiz /> */}
     <App />
   </React.StrictMode>
 );

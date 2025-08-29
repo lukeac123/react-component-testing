@@ -1,0 +1,22 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+}
+
+.blogs {
+    display: flex;
+    flex-direction: column;
+    gap: 5px
+
+}
+
+.blogCard{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    overflow: scroll;
+    border: 1px solid
+}
