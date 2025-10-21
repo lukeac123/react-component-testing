@@ -1,10 +1,9 @@
 import { useState, createContext } from "react";
 import { TodoCard } from "./TodoCard";
+import { TodoContext } from "./TodoContext";
 import "./App.css";
 
 // TODO: Adjust the status depending on time / estimated time amount
-
-export const TodosContext = createContext(null);
 
 export default function App() {
   const [todoInput, setTodoInput] = useState("");
@@ -29,7 +28,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <TodosContext.Provider value={{ todoList, setTodoList }}>
+      <TodoContext.Provider value={{ todoList, setTodoList }}>
         <text>Todo List</text>
         <input
           placeholder="Enter a Todo"
@@ -49,7 +48,7 @@ export default function App() {
         })}
         <button onClick={() => setTodoList([])}>Clear All</button>
         {error && "Error: check all fields have been filled"}
-      </TodosContext.Provider>
+      </TodoContext.Provider>
     </div>
   );
 }

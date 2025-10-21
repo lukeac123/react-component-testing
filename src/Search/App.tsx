@@ -1,44 +1,49 @@
 import { useState, useEffect, useCallback } from "react";
 import "./App.css";
 
+const useDebounce = (value, timeout) => {
+  const [debounce, setDebounce] = useState();
+  useEffect(() => {
+    const timeoutId = setTimeout(() => setDebounce(value), timeout);
+    return () => clearTimeout(timeoutId);
+  }, [value, timeout]);
+  return debounce;
+};
+
 export const App = () => {
-  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState("1");
+  const [data, setData] = useState([]);
+
+  const searchValueDebounce = useDebounce(searchValue, 1000);
 
   const handleChange = (event) => {
     setSearchValue(() => event.target.value);
   };
 
-  useEffect(() => {
-    async function getData() {
-      try {
-        const response = await fetch(
-          `https://jsonplaceholder.typicode.com/posts/${searchValue}/comments`
-        );
-        if (!response.ok) {
-          // What happens with this throw error ?
-          throw new Error(`${response.status}`);
-        }
-        const data = await response.json();
-        setData(data);
-      } catch (error) {
-        setError(true);
-        console.log(error.message);
-      } finally {
-        setLoading(false);
-      }
+  const getData = useCallback(async () => {
+    try {
+      const response = await fetch(
+        `https://jsonplaceholder.typicode.com/posts/${searchValueDebounce}/comments`
+      );
+      if (!response.ok) throw new Error(`${response.status}`);
+      const data = await response.json();
+      setData(data);
+    } catch (error) {
+      setError(error?.message);
+      console.log(error.message);
+    } finally {
+      setLoading(false);
     }
+  }, [searchValueDebounce]);
 
-    const timeOutId = setTimeout(getData, 1000);
+  useEffect(() => {
+    getData();
+  }, []);
 
-    return function cleanup() {
-      clearTimeout(timeOutId);
-    };
-  }, [searchValue]);
-
-  if (loading) return <>...loading</>;
+  if (error) return <div className="page">{error}</div>;
+  if (loading) return <div className="page">...loading</div>;
 
   return (
     <div className="page">

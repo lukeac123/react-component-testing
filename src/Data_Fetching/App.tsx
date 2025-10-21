@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const App = () => {
   const [data, setData] = useState(null);
@@ -40,3 +40,29 @@ const App = () => {
 };
 
 export default App;
+
+// const getData = useCallback(async () => {
+//   try {
+//     const response = await fetch(
+//       `https://dummyjson.com/products?limit=${itemsPerPage}&skip=${
+//         page * itemsPerPage
+//       }`
+//     );
+//     if (!response.ok) {
+//       console.error(`Response is not valid ${response.status}`);
+//       setError(`Response is not valid ${response.status}`);
+//     }
+//     const data = await response.json();
+//     setProducts(data.products);
+//   } catch (error) {
+//     console.error(error.message);
+//     setError(error.message);
+//   }
+// }, [page, itemsPerPage]);
+
+// useEffect(() => {
+//   getData();
+// }, [getData]);
+
+// if (error) return <div>{error.toString()}</div>;
+// if (!products) return;

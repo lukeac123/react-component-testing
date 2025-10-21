@@ -1,0 +1,24 @@
+.app{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+   width: 600px;
+   height: 600px;
+   display: block;
+   border: solid 1px;
+}
+
+.square {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: solid 1px;
+    background: radial-gradient(#f69d3c, #3f87a6);
+    flex-wrap: wrap;
+    
+}

@@ -10,16 +10,16 @@ export const Quiz = () => {
   const score = useRef(null);
   const [inputState, setInputState] = useState(null);
 
-  const questionNumber = useRef(0);
+  const [questionNumber, setQuestionNumber] = useState(0);
 
   const handleInputState = (event) => {
     if (event.key !== "Enter") return;
-    event.target.value === questions[questionNumber.current].answer
-      ? console.log(true)
+    event.target.value === questions[questionNumber].answer
+      ? setQuestionNumber((prev) => prev + 1)
       : console.log(false);
   };
 
-  const question = questions[questionNumber.current].question;
+  const question = questions[questionNumber].question;
 
   return (
     <>

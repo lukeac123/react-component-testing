@@ -1,10 +1,11 @@
-import { useContext } from "react";
-import { TodosContext } from "./App";
+import { useTodoContext } from "./TodoContext";
 import { clsx } from "clsx";
 import "./TodoCard.css";
 
 export const TodoCard = ({ index }) => {
-  const { todoList, setTodoList } = useContext(TodosContext);
+  const { todoList, setTodoList } = useTodoContext();
+
+  console.log(todoList);
 
   const handleDelete = () => {
     const newTodos = [...todoList];

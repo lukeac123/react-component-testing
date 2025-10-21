@@ -11,14 +11,22 @@ import "./index.css";
 // import App from "./Overlay/App";
 // import { App } from "./Accordion/App";
 import { Quiz } from "./Quiz";
-import { App } from "./Search";
+// import { App } from "./Search";
+// import { App } from "./ArtExperiment";
+import { StopWatch } from "./Stopwatch";
+import Component from "./GreatFrontEnd/useCounter";
+// import { App } from "./RaceCondition/index";
+// import { WebsocketApp } from "./websocket/App";
+import { App } from "./DataTable/DataTable";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    {/* <Quiz /> */}
+    {/* <StopWatch /> */}
+    {/* <Component /> */}
+    {/* <WebsocketApp /> */}
     <App />
   </React.StrictMode>
 );
